@@ -14,8 +14,8 @@ hist(prep_A, col = "red", breaks = 6, main = "Частоты процентов 
 hist(prep_B, col = "blue", breaks = 6, main = "Частоты процентов снижения симптомов после препарата B")
 
 # проверка (тоже не совсем корректная) на согласие с нормальным распределением
-chisq.test(prep_A)
-chisq.test(prep_B)
+ks.test(prep_A, "pnorm", 0, 1)
+ks.test(prep_B, "pnorm", 0, 1)
 
 # проведение двухвыборочного t-теста для проверки утверждения компании
 f <- t.test(prep_A, prep_B, alternative=c("greater"), conf.level=0.95)
